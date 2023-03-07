@@ -498,6 +498,32 @@ public class BTVN {
         }
     }
     
+    public static int VetCan(String T, String P)
+    {
+        for(int i=0;i<T.length();i++)
+        {
+            int count = 1;
+            if(T.charAt(i) == P.charAt(0)) 
+            {
+                for(int j=1;j<P.length();j++)
+            {
+                if(T.charAt(i+j)!=P.charAt(j)) break;
+                else count ++;
+            }
+            if(count == P.length()) return i+1;
+            }
+        }
+        System.out.println(T);
+        System.out.println(P);
+        return -1;
+    }
+    
+    public static int BoyerMoore(String T, String P)
+    {
+        
+        return -1;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -506,7 +532,7 @@ public class BTVN {
         Scanner input = new Scanner(System.in);
         int p = 2147483647;
         int W = 8;
-        System.out.println(SinhSoNguyenTo(12, 2));
+        System.out.println(VetCan("12748132983" ,"13"));
 //        System.out.println(MillerRobin(101));
 //        NhanBinhPhuongCoLap(211, 41, 101);
 //        int[] a = NhanBinhPhuongCoLap(211, 41, 101);
