@@ -5,6 +5,8 @@
  */
 package btvn;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Admin
@@ -37,37 +39,47 @@ public class BTVNSTRING {
         else return m;
     }
     
-    public static char[] LietKeChu(String P)
-    {
-        char[] x = new char[33];
-        int k=0;
-        for(int i=0;i<P.length();i++)
-        {
-            int count=0;
-            for(int j=i+1;j<P.length();j++)
-            {
-                if(P.charAt(i) == P.charAt(j)) count++;
-            }
-            if(count == 0) x[k++] = P.charAt(i);
-        }
-        
-        for(int i=x.length;i>=0;i--)
-        {
-            if(x[i] != ' ') b=i+1;break; 
-        }
-        
-        return x;
-    }
-    
-    public static int HamTienXuLy(char X)
+    public static int HamTienXuLy(char x, String P)
     {
         
+        for(int i=P.length()-1;i>=0;i--)
+        {
+            if(x == P.charAt(i)) return i;
+        }
+        return -1;
     }
     
     public static int BoyerMoore(String T, String P)
     {
-        char[] x = new char[25];
-        int[] L = new int[100];
+        int m = P.length();
+        int i=P.length()-1;
+        int j=i;
+        int count=0;
+        while(true)
+        {
+            System.out.println(i + " " + j + " " + T.charAt(i)+ " " + P.charAt(j));
+            if(T.charAt(i)!= P.charAt(j))
+            {
+                i=i+m - MIN(j, 1 + HamTienXuLy(T.charAt(i), P));
+                j = m-1;
+                count = 0;
+            }
+            else {
+            i-=1;
+            j-=1;
+            count++;
+            }
+            System.out.println("Count: " + count);
+            if(count == P.length()-1) return i;
+            if (i>=T.length()) break;
+        }
         return -1;
     }
+    
+    public static int KMP(String T, String P)
+    {
+        
+        return -1;
+    }
+    
 }
