@@ -37,11 +37,37 @@ public class BTVNSTRING {
         else return m;
     }
     
+    public static char[] LietKeChu(String P)
+    {
+        char[] x = new char[33];
+        int k=0;
+        for(int i=0;i<P.length();i++)
+        {
+            int count=0;
+            for(int j=i+1;j<P.length();j++)
+            {
+                if(P.charAt(i) == P.charAt(j)) count++;
+            }
+            if(count == 0) x[k++] = P.charAt(i);
+        }
+        
+        for(int i=x.length;i>=0;i--)
+        {
+            if(x[i] != ' ') b=i+1;break; 
+        }
+        
+        return x;
+    }
     
+    public static int HamTienXuLy(char X)
+    {
+        
+    }
     
     public static int BoyerMoore(String T, String P)
     {
-        
+        char[] x = new char[25];
+        int[] L = new int[100];
         return -1;
     }
 }

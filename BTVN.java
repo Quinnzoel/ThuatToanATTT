@@ -30,7 +30,11 @@ public class BTVN {
         Scanner input = new Scanner(System.in);
         int p = 2147483647;
         int W = 8;
-        System.out.println(CongTruNhanChia.NghichDaoFp(45682375, 489573857));
+        char[] x = BTVNSTRING.LietKeChu("abacab");
+        for(int i=0;i<x.length;i++)
+        {
+            System.out.println(x[i]);
+        }
     }
     
 }

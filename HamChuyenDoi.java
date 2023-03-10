@@ -24,7 +24,13 @@ public class HamChuyenDoi {
             if(a[i]==1) {b=i+1; break; }
         }
         int[] d = Arrays.copyOfRange(a, 0, b);
-        return d;
+        
+        for(int i=0;i<d.length;i++)
+        {
+            if(d[i]==1) {b=i; break;}
+        }
+        int[] e = Arrays.copyOfRange(d, b, d.length);
+        return e;
     }
     
     public static int[] NhiPhan(int a)
