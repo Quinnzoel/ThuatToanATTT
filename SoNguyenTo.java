@@ -98,9 +98,6 @@ public class SoNguyenTo {
         long[] c = new long [5000];
         
         int d = (int) Math.sqrt(n);
-        int so = d;
-        int s = 2;
-        int r = s+d;
         long[] e = EratosthenesNguyenThuy(d);
         int dem=0;
         for(int i=0;i<e.length;i++)
@@ -109,25 +106,27 @@ public class SoNguyenTo {
             c[i] = e[i];
             dem++;
         }
+        long m=d;
         while(true)
         {
-            int m = d+d;
-            if(m>n) break;
-            d+=1;
+            if(m==n) break;
+            long h=m+1;
+            m = m+d;
+            if(m>n) m=n;
             int temp = (int) Math.sqrt(m);
-            for(int i=d;i<=m;i++)
+            for(long i=h;i<=m;i++)
             {
                 for(int p=2;p<=temp;p++)
                 {
                     if(i%p==0) {
-                        boi[i]=1;
+                        boi[(int)i]=1;
                         break;
                     }
                 }
             }
         }
         
-        for(int i=(int)so+1;i<n;i++)
+        for(int i=(int)d+1;i<n;i++)
         {
             if(boi[i]==1) continue;
             c[dem++] = i;
