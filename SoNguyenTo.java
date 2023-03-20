@@ -14,13 +14,23 @@ import java.util.Random;
  */
 public class SoNguyenTo {
     
-    public static int[] SoNguyenTo(int n)
+    public static int NgauNhien(long n) 
     {
-        int[] c = new int [500];
+        while(true)
+        {
+           int a = new Random().nextInt(1000)+2;   
+//           System.out.println("so  ngau nhien: " + a);
+           if (a <= n-2 && a>=2) return a;
+        }
+    }
+    
+    public static long[] SoNguyenTo(long n)
+    {
+        long[] c = new long [5000];
         if(n<=3) {
-            for(int i=1;i<=n;i++)
+            for(int i=1;i<n;i++)
             {
-                c[i]=n;
+                c[i-1]=i+1;
             }
         }
         else {
@@ -40,33 +50,24 @@ public class SoNguyenTo {
             }
         }
  
-        for(int i=0;i<n;i++)
-        {
-            if(c[i] == 0) break;
-            System.out.print(c[i] + " ");
-        }
- 
         return c;
     }
  
-    public static int[]  EratosthenesNguyenThuy(int n)
+    public static long[]  EratosthenesNguyenThuy(long n)
     {
-        int[] c = new int [500];
+        long[] c = new long [5000];
         if(n<=3) {
-            for(int i=2;i<=n;i++)
+            for(int i=1;i<n;i++)
             {
-                c[i]=i;
+                c[i-1]=i+1;
             }
-            for(int i=2;i<=n;i++)
-        {
-            if(c[i] == 0) break;
-            System.out.print(c[i] + " ");
-        }
             return c;
         }
         int p = 2;
         int j=0;
-        int[] boi = new int[500];
+        int[] boi = new int[5000];
+        boi[0] = 1;
+        boi[1] = 1;
         while(true)
         {
         for(int i=2;i<n;i++)
@@ -80,29 +81,65 @@ public class SoNguyenTo {
         if(p*2 > n) break;
         }  
  
-        for(int i=0; i<n;i++)
+        for(int i=0; i<=n;i++)
         {
             if(boi[i]==1) continue;
             c[j++] = i;
         }
  
-        for(int i=2;i<=n;i++)
-        {
-            if(c[i] == 0) break;
-            System.out.print(c[i] + " ");
-        }
  
         return c;
     }
  
-//    public static int[]  EratosthenesPhanDoan(int n)
-//    {
-//        int[] c = new int [100];
-//        
-//        return c;
-//    }
+    public static long[]  EratosthenesPhanDoan(long n)
+    {
+        long[] boi = new long [5000];
+        
+        long[] c = new long [5000];
+        
+        int d = (int) Math.sqrt(n);
+        int so = d;
+        int s = 2;
+        int r = s+d;
+        long[] e = EratosthenesNguyenThuy(d);
+        int dem=0;
+        for(int i=0;i<e.length;i++)
+        {
+            if(e[i]==0) break;
+            c[i] = e[i];
+            dem++;
+        }
+        while(true)
+        {
+            int m = d+d;
+            if(m>n) break;
+            d+=1;
+            int temp = (int) Math.sqrt(m);
+            for(int i=d;i<=m;i++)
+            {
+                for(int p=2;p<=temp;p++)
+                {
+                    if(i%p==0) {
+                        boi[i]=1;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        for(int i=(int)so+1;i<n;i++)
+        {
+            if(boi[i]==1) continue;
+            c[dem++] = i;
+        }
+        
+        
+        return c;
+        
+        
+    }
  
-    public static boolean KiemTraNguyenTo(int n)
+    public static boolean KiemTraNguyenTo(long n)
     {
         for(int i=2;i<n;i++)
         {
@@ -111,11 +148,11 @@ public class SoNguyenTo {
         return true;
     }
  
-    public static int PollardRho(int n)
+    public static long PollardRho(long n)
     {
-        int a=2;
-        int b=2;
-        int d;
+        long a=2;
+        long b=2;
+        long d;
         while(true)
         {
             a = (a*a + 1)%n;
@@ -127,21 +164,22 @@ public class SoNguyenTo {
         }
     }
     
-    public static boolean ThuatToanFermat(int n, int t)
+    public static boolean ThuatToanFermat(long n, int t)
     {
         for(int i=1;i<=t;i++)
         {
             Random rand = new Random();
-            int a = rand.nextInt(n-2)+2;
-            int r = CongTruNhanChia.NhanBinhPhuongCoLap(n, a, n-1);
+            int a = NgauNhien(n);
+            long r = CongTruNhanChia.NhanBinhPhuongCoLap(n, a, n-1);
+//            System.out.println(r);
             if (r!=1) return false;
         }
         return true;
     }
     
-    public static boolean MillerRobin(int n)
+    public static boolean MillerRobin(long n)
     {
-        int t = n-1;
+        long t = n-1;
         int s=0;
         while(true)
         {
@@ -149,12 +187,11 @@ public class SoNguyenTo {
             else break;
             t/=2;
         }
-        int r = (n-1)/(int)(pow(2, s));
+        long r = (n-1)/(int)(pow(2, s));
         for(int i=1;i<=2;i++)
         {
-            Random rand = new Random();
-            int a = rand.nextInt(n-2) + 2;
-            int y = CongTruNhanChia.NhanBinhPhuongCoLap(n, a, r);
+            int a = NgauNhien(n);
+            long y = CongTruNhanChia.NhanBinhPhuongCoLap(n, a, r);
             if(y!=1 && y != n-1)
             {
                 int j=1;
@@ -170,19 +207,19 @@ public class SoNguyenTo {
         return true;
     }
     
-    public static int SinhSoNguyenTo(int k, int t)
+    public static long SinhSoNguyenTo(int k, int t)
     {
         while(true)
         {
         Random rand = new Random();
-        int[] bit = new int[k+1];
+        long[] bit = new long[k+1];
         for(int i=0;i<k;i++)
         {
             bit[i] = rand.nextInt(2);
 //            System.out.print(bit[i]);
         }
-        System.out.println(" ");
-        int n = HamChuyenDoi.ThapPhan(bit, 0, bit.length-2);
+//        System.out.println(" ");
+        long n = HamChuyenDoi.ThapPhan(bit, 0, bit.length-2);
         if(MillerRobin(n)==true) return n;
         }
     }

@@ -25,7 +25,7 @@ public class BTVNSTRING {
                 if(T.charAt(i+j)!=P.charAt(j)) break;
                 else count ++;
             }
-            if(count == P.length()) return i+1;
+            if(count == P.length()) return i;
             }
         }
         System.out.println(T);
@@ -69,17 +69,66 @@ public class BTVNSTRING {
             j-=1;
             count++;
             }
-            System.out.println("Count: " + count);
+//            System.out.println("Count: " + count);
             if(count == P.length()-1) return i;
             if (i>=T.length()) break;
         }
         return -1;
     }
     
+    public static int FailureFunction(int j, String P)
+    {
+        String[] TienTo = new String[10];
+        String[] HauTo = new String[10];
+        TienTo[0] ="";
+        HauTo[0] ="";
+//        HauTo[1] = "";
+        if(j==0) {return -1;}
+        else {
+            for(int i=1;i<=j;i++)
+            {
+                TienTo[i] = "" + TienTo[i-1] + P.charAt(i-1);
+                HauTo[i] = "" + P.charAt(j-i+1) + HauTo[i-1];
+                if(i==1) HauTo[i] = "";
+ //               System.out.println("i: " + i +" "+TienTo[i] +" " + HauTo[i]);
+            }
+            int count = 0 ;
+            for(int i=1;i<=j;i++)
+            {
+                for(int k=1;k<=j;k++)
+                {
+                    if(TienTo[i].equalsIgnoreCase(HauTo[k])) count++;
+                }
+            }
+            return count;
+            
+        }
+//        return -1;
+    }
+    
     public static int KMP(String T, String P)
     {
-        
-        return -1;
+        int j=0;
+        int i=0;
+        int count=0;
+        while(true)
+        {
+            int tong = i+j;
+//            System.out.println("i+j "+ tong  + " "+ j + " " + T.charAt(i+j) + " " + P.charAt(j));
+            if(T.charAt(i+j)!=P.charAt(j))
+            {
+                i = i + j - FailureFunction(j, P);
+                j = FailureFunction(j, P);
+                if(j==-1) j=0;
+                count = 0;
+            }
+            else {
+                j++;
+                count++;
+            }
+//            System.out.println("count " +count);
+            if(count==P.length()) return i;
+        }
     }
     
 }

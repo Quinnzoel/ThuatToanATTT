@@ -11,16 +11,16 @@ package btvn;
  */
 public class Euclide {
     
-    public static int ThuatToanEuclide(int a,int b)
+    public static long ThuatToanEuclide(long a,long b)
     {
         if(a==b) return a;
         else if(a>b)
         {
-            int s = a%b;
+            long s = a%b;
             if (s==0) return b;
             while(true)
             {
-                int t = b%s;
+                long t = b%s;
                 b=s;
                 s=t;
                 if(s==0) break;
@@ -29,11 +29,11 @@ public class Euclide {
         }
         else if(a<b)
         {
-            int s = b%a;
+            long s = b%a;
             if (s==0) return a;
             while(true)
             {
-                int t = a%s;
+                long t = a%s;
                 a=s;
                 s=t;
                 if(s==0) break;
@@ -43,13 +43,13 @@ public class Euclide {
         int c =1;
         return c;
     }
-    public static int[] EuClideMoRong(int a,int b)
+    public static long[] EuClideMoRong(long a,long b)
     {
-        int d,x,y,x1,x2,y1,y2,q,r;
-        int[] c = new int [3];
+        long d,x,y,x1,x2,y1,y2,q,r;
+        long[] c = new long [3];
         if(a<b)
         {
-            int temp = a;
+            long temp = a;
             a=b;
             b=temp;
         }
