@@ -18,7 +18,13 @@ public class Bai39va40 {
         Scanner input = new Scanner(System.in);
         long[] a = new long[1000];
         System.out.println("So luong so trong mang: ");
-        long n = input.nextLong();
+        long n;
+        while(true)
+        {
+        System.out.println("So luong so trong mang: ");
+         n = input.nextLong();
+        if(n>0) break;
+        }
         System.out.println("Nhap mang A: ");
         for(int i=0;i<n;i++)
         {

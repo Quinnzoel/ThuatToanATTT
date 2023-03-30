@@ -15,10 +15,15 @@ public class Bai4 {
     public static void In()
     {
         Scanner input = new Scanner(System.in);
+        long A,B;
+        while(true)
+        {
         System.out.println("Nhap A: ");
-        long A= input.nextLong();
+         A = input.nextLong();
         System.out.println("Nhap B: ");
-        long B = input.nextLong();
+         B = input.nextLong();
+        if(A>0 && B>0) break;
+        }
         int dem=0;
         for(long i=A;i<=B;i++)
         {

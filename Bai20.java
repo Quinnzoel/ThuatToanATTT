@@ -49,12 +49,17 @@ public class Bai20 {
     public static void In()
     {
         Scanner input = new Scanner(System.in);
+        long m,n,d;
+        while(true)
+        {
         System.out.println("Nhap M: ");
-        long m = input.nextLong();
+         m = input.nextLong();
         System.out.println("Nhap N: ");
-        long n = input.nextLong();
+         n = input.nextLong();
         System.out.println("Nhap D: ");
-        long d = input.nextLong();
+         d = input.nextLong();
+        if(m>0 && n>0 && d>0) break;
+        }
         
         for(long i=m+1;i<n;i++)
         {

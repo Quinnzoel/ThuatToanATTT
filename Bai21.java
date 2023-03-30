@@ -36,10 +36,15 @@ public class Bai21 {
     public static void In()
     {
         Scanner input = new Scanner(System.in);
-        System.out.println("Nhap A: ");
-        long a = input.nextLong();
+        long a,b;
+        while(true)
+        {
+            System.out.println("Nhap A: ");
+         a = input.nextLong();
         System.out.println("Nhap B: ");
-        long b = input.nextLong();
+         b = input.nextLong();
+        if(a>0 && b>0) break;
+        }
         System.out.println(soluong(a, b));
     }
     

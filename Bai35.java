@@ -48,8 +48,13 @@ public class Bai35 {
     public static void In()
     {
         Scanner input = new Scanner(System.in);
+        long n;
+        while(true)
+        {
         System.out.println("Nhap n: ");
-        long n = input.nextLong();
+         n = input.nextLong();
+        if(n>0) break;
+        }
         if(MillerRobin(n)==true) System.out.println("So Nguyen To");
         else System.out.println("Hop so");
     }

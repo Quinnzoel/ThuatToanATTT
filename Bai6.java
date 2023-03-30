@@ -37,8 +37,13 @@ public class Bai6 {
     public static void In()
     {
         Scanner input = new Scanner(System.in);
-        System.out.println("Nhap n: ");
-        long n = input.nextLong();
+        long n;
+        while(true)
+        {
+        System.out.println("Nhap N: ");
+         n = input.nextLong();
+        if(n>0) break;
+        }
         for(int i=1;i<n;i++)
         {
             if(UocSo(i)==true) System.out.print(i + " ");

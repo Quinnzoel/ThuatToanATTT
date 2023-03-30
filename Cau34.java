@@ -82,8 +82,13 @@ public class Cau34 {
     public static void In()
     {
         Scanner input = new Scanner(System.in);
-        System.out.println("Nhap n: ");
-        long n = input.nextLong();
+        long n;
+        while(true)
+        {
+        System.out.println("Nhap N: ");
+         n = input.nextLong();
+        if(n>0) break;
+        }
         if(ThuatToanFermat(n, 2)==true) System.out.println("So Nguyen To");
         else System.out.println("Hop so");
     }

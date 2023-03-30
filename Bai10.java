@@ -39,7 +39,13 @@ public class Bai10 {
     {
         System.out.println("Nhap n: ");
         Scanner input = new Scanner(System.in);
-        long n = input.nextLong();
+        long n;
+        while(true)
+        {
+        System.out.println("Nhap n: ");
+         n = input.nextLong();
+        if(n>0) break;
+        }
         System.out.println("So uoc: "+ tims(n));
         System.out.println("So uoc nguyen to: "+timk(n));
     }

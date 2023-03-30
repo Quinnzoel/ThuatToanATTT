@@ -30,9 +30,14 @@ public class Bai8 {
 
 public static void In()
 {
-    System.out.println("Nhap n: ");
     Scanner input = new Scanner(System.in);
-    long n = input.nextLong();
+        long n;
+        while(true)
+        {
+        System.out.println("Nhap N: ");
+         n = input.nextLong();
+        if(n>0) break;
+        }
     long[] l = TPrime(n);
     for(int i=0;i<=n;i++)
     {

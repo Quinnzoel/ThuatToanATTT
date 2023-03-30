@@ -23,10 +23,15 @@ public class Bai22 {
     public static void In()
     {
         Scanner input = new Scanner(System.in);
-        System.out.println("Nhap L: ");
-        long l = input.nextLong();
+        long l,r;
+        while(true)
+        {
+            System.out.println("Nhap L: ");
+         l = input.nextLong();
         System.out.println("Nhap R: ");
-        long r = input.nextLong();
+         r = input.nextLong();
+         if(l>0 && r>0) break;
+        }
         long tong = 0;
         for(long i=l;i<r;i++)
         {

@@ -52,8 +52,13 @@ public class Bai7 {
     public static void In()
     {
         Scanner input = new Scanner(System.in);
-        System.out.println("Nhap n: ");
-        long n = input.nextLong();
+        long n;
+        while(true)
+        {
+        System.out.println("Nhap N: ");
+         n = input.nextLong();
+        if(n>0) break;
+        }
         for(int i=10;i<=n;i++)
         {
             if(CheckDaoNguoc(i)==true) System.out.println(i + " ");

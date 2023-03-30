@@ -30,7 +30,7 @@ public class Bai19 {
         long a,b,c,n,m;
         while(true)
         {
-            if(a>0 && b>0 && c>0 && n>0 && m>0) break;
+            
             System.out.println("Nhap A: ");
             a = input.nextLong();
         System.out.println("Nhap B: ");
@@ -41,6 +41,7 @@ public class Bai19 {
             n = input.nextLong();
         System.out.println("Nhap m: ");
             m = input.nextLong();
+            if(a>0 && b>0 && c>0 && n>0 && m>0) break;
         }
         System.out.println(GiaTriBieuThuc(a, b, c,n,m));
     }
