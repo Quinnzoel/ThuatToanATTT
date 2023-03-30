@@ -61,8 +61,8 @@ public class Bai3 {
     {
         System.out.println("Nhap N: ");
         Scanner input = new Scanner(System.in);
-        int n = input.nextInt();
-        int N = n + timp(n) + tims(n) - timq(n) -timk(n);
+        long n = input.nextLong();
+        long N = n + timp(n) + tims(n) - timq(n) -timk(n);
         System.out.println(N);
     }
     

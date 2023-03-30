@@ -14,9 +14,14 @@ import java.util.Scanner;
 public class Bai13 {
     public static void In()
     {
-        Scanner input = new Scanner(System.in);
+        long n;
+        while (true)
+        {
+           Scanner input = new Scanner(System.in);
         System.out.println("Nhap n: ");
-        long n = input.nextLong();
+        n = input.nextLong(); 
+        if(n>0) break;
+        }
         long[] l = Bai12.SoNguyenTo(n);
         for(int i=0;i<l.length;i++)
         {

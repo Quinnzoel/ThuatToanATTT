@@ -16,9 +16,14 @@ public class Bai9va11 {
     
     public static void In()
     {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Nhap n: ");
-        long n = input.nextLong();
+        long n;
+        while(true)
+        {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Nhap n: ");
+            n = input.nextLong();
+            if(n>0) break;
+        }
         int dem=0;
         int s=0;
         for(int i=2;i<=n;i++)

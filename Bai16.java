@@ -16,10 +16,15 @@ public class Bai16 {
 
     public static void In()
     {
-        System.out.println("Nhap n: ");
-        Scanner input = new Scanner(System.in);
-        int n = input.nextInt();
+        int n;
         Random rand = new Random();
+        while(true)
+        {
+            System.out.println("Nhap n: ");
+        Scanner input = new Scanner(System.in);
+        n = input.nextInt();
+        if(n>0) break;
+        }
         long[] l = new long[n];
         for(int i=0;i<n;i++)
         {

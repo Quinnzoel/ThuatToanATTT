@@ -114,11 +114,16 @@ public class Bai18 {
         long p = 2147483647;
         int w = 8;
         int t = Timt(p, w);
+        long a,b;
+        while(true)
+        {
         System.out.println("Nhap A: ");
-        long a = input.nextLong();
-        long[] A = DangMang(a, p, w);
+        a = input.nextLong();
         System.out.println("Nhap B: ");
-        long b = input.nextLong();
+        b = input.nextLong();
+        if(a>0 && b>0) break;
+        }
+        long[] A = DangMang(a, p, w);
         long[] B = DangMang(b, p, w);
         long[] c = PhepCongTrenFp(p, w, A, B);
         System.out.print("("+c[t]+", (");

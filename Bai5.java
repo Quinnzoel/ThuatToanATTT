@@ -17,19 +17,13 @@ public class Bai5 {
     {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhap A: ");
-        int A= input.nextInt();
+        long A= input.nextLong();
         System.out.println("Nhap B: ");
-        int B = input.nextInt();
-        int s=0;
-        for(int i=B;i>=A;i--)
+        long B = input.nextLong();
+        long s=0;
+        for(long i=B;i>=A;i--)
         {
-            int f=0;
-            for(int j=2;j<i;j++)
-            {
-                if(i%j==0) 
-                {f=1;break;}
-            }
-            if(f==0) s+=i;
+            if(Bai2.CheckNguyenTo(i)==true) s+=i;
         }
         System.out.println("Tong: "+s);
     }

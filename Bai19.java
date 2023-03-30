@@ -27,16 +27,21 @@ public class Bai19 {
     public static void In()
     {
         Scanner input = new Scanner(System.in);
-        System.out.println("Nhap A: ");
-        long a = input.nextLong();
+        long a,b,c,n,m;
+        while(true)
+        {
+            if(a>0 && b>0 && c>0 && n>0 && m>0) break;
+            System.out.println("Nhap A: ");
+            a = input.nextLong();
         System.out.println("Nhap B: ");
-        long b = input.nextLong();
+            b = input.nextLong();
         System.out.println("Nhap C: ");
-        long c = input.nextLong();
+            c = input.nextLong();
         System.out.println("Nhap n: ");
-        long n = input.nextLong();
+            n = input.nextLong();
         System.out.println("Nhap m: ");
-        long m = input.nextLong();
+            m = input.nextLong();
+        }
         System.out.println(GiaTriBieuThuc(a, b, c,n,m));
     }
     

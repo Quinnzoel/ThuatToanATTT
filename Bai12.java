@@ -53,11 +53,17 @@ public class Bai12 {
     
     public static void In()
     {
-        System.out.println("Nhap n: ");
-        Scanner input = new Scanner(System.in);
-        long n = input.nextLong();
-        System.out.println("Nhap k: ");
-        int k = input.nextInt();
+        int k;
+        long n;
+        while(true)
+        {
+            System.out.println("Nhap n: ");
+            Scanner input = new Scanner(System.in);
+            n = input.nextLong();
+            System.out.println("Nhap k: ");
+            k = input.nextInt();
+            if(n>0 && k>0) break;
+        }
         int j = Vitri(n, k);
         long[] l = SoNguyenTo(n);
         for(int i=j;i<j+k;i++)

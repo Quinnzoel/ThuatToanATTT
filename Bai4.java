@@ -16,20 +16,14 @@ public class Bai4 {
     {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhap A: ");
-        int A= input.nextInt();
+        long A= input.nextLong();
         System.out.println("Nhap B: ");
-        int B = input.nextInt();
-        
-        for(int i=B;i>=A;i--)
+        long B = input.nextLong();
+        int dem=0;
+        for(long i=A;i<=B;i++)
         {
-            int f=0;
-            for(int j=2;j<i;j++)
-            {
-                if(i%j==0) 
-                {f=1;break;}
-            }
-            if(f==0) System.out.print(i +" ");
+            if(Bai2.CheckNguyenTo(i)==true) dem++;
         }
-        
+        System.out.println(dem);
     }
 }

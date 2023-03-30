@@ -15,7 +15,7 @@ public class Bai2 {
     
     public static boolean CheckNguyenTo(long n)
     {
-        if(n==0 || n==1) return false;
+        if(n<2) return false;
         for(int i=2;i<n;i++)
         {
             if(n%i==0) return false;
@@ -56,9 +56,14 @@ public class Bai2 {
     
     public static void In()
     {
-        System.out.println("Nhap n: ");
-        Scanner input = new Scanner(System.in);
-        int n = input.nextInt();
+        int n;
+        while(true)
+        {
+            System.out.println("Nhap n: ");
+            Scanner input = new Scanner(System.in);
+            n = input.nextInt();
+            if(n>=2 && n<=10) break;
+        }
         Nchusonguyento(n);
     }
     
