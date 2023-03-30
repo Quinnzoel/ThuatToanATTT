@@ -42,7 +42,8 @@ public class KTHP {
 //Bai25.In();
 //Bai26.In();
 //Bai27.In();
-//Bai32.in();
+//Bai32.inString();
+//Bai32.InSo();
 //Cau34.In();
 //Bai35.In();
 //Bai36.In();
@@ -50,7 +51,7 @@ public class KTHP {
 //Bai39va40.In();
 //Bai41.In();
 //Bai42.In();
-//Bai43.In();
+Bai43.In();
     }
     
 }

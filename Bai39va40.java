@@ -25,14 +25,17 @@ public class Bai39va40 {
             System.out.print("A["+i+"]: ");
             a[i] = input.nextLong();
         }
-        
+        int dem =0;
         for(int i=0;i<n-1;i++)
         {
             for(int j=i+1;j<n;j++)
             {
-                if(Bai2.CheckNguyenTo(Bai20.UCLN(a[i], a[j]))==true) System.out.println(a[i] + " " +a[j]);
+                if(Bai2.CheckNguyenTo(Bai20.UCLN(a[i], a[j]))==true) {
+                    dem++;
+                    System.out.println(a[i] + " " +a[j]);}
             }
         }
+        System.out.println("So cac cap so: "+dem);
     }
     
 }

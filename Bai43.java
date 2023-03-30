@@ -5,6 +5,7 @@
  */
 package kthp;
 
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -16,11 +17,13 @@ public class Bai43 {
     
     public static void In()
     {
+        Random rand = new Random();
         Scanner input = new Scanner(System.in);
         System.out.println("Nhap N: ");
         long n = input.nextLong();
-        long p = Bai42.SinhSoNguyenTo(7);
-        for(long i=1;i<100;i++)
+        int k = rand.nextInt(5)+2;
+        long p = Bai42.SinhSoNguyenTo(k);
+        for(long i=1;i<n;i++)
         {
             if(Bai2.CheckNguyenTo(Cau34.NhanBinhPhuongCoLap(n, i, p))==true) System.out.print(i + " ");
         }

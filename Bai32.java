@@ -50,7 +50,7 @@ public class Bai32 {
         return (long)x;
     }
     
-    public static void in()
+    public static void inString()
     {
         Random rand = new Random();
         Scanner input = new Scanner(System.in);
@@ -70,7 +70,7 @@ public class Bai32 {
         {
             M[i] = BanMa(m.charAt(i));
             long temp = Cau34.NhanBinhPhuongCoLap(n, M[i], TimE(y));
-            System.out.println("temp: "+temp);
+//            System.out.println("temp: "+temp);
             c += (char)(temp);
         }
         System.out.println(c);
@@ -80,9 +80,31 @@ public class Bai32 {
         {
             C[i] = BanMa(c.charAt(i));
             long temp = Cau34.NhanBinhPhuongCoLap(n, C[i], d);
-            System.out.println("temp: "+temp);
+//            System.out.println("temp: "+temp);
             m+=(char)(temp);
         }
+        System.out.println(m);
+    }
+    
+    public static void InSo()
+    {
+        Random rand = new Random();
+        Scanner input = new Scanner(System.in);
+        int p = rand.nextInt(400)+100;
+        int q = rand.nextInt(400)+100;
+        System.out.println(p+" "+q);
+        long n = p*q;
+        long y = (p-1)*(q-1);
+        long d = NguyenToCungNhau(y);
+        System.out.println("d: "+d);
+        System.out.println("Nhap m: ");
+        long m = input.nextLong();
+        m=m+123;
+        long c = Cau34.NhanBinhPhuongCoLap(n, m, TimE(y));
+        System.out.println(c);
+        m = Cau34.NhanBinhPhuongCoLap(n, c, d);
+//            System.out.println("temp: "+temp);
+        m-=123;
         System.out.println(m);
     }
     
